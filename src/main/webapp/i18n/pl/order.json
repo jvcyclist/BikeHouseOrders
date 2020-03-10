@@ -1,0 +1,28 @@
+{
+  "bikehouseordersApp": {
+    "order": {
+      "home": {
+        "title": "Zamówienie",
+        "createLabel": "Dodaj Zamówienie",
+        "createOrEditLabel": "Dodaj lub edytuj: Zamówienie",
+        "notFound": "Nie znaleziono zamówień"
+      },
+      "created": "Utworzono nowy obiekt typu Zamówienie z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Zamówienie z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Zamówienie z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Zamówienie {{ id }}?"
+      },
+      "detail": {
+        "title": "Zamówienie"
+      },
+      "createdDate": "Data utworzenia",
+      "bikeName": "Rower",
+      "phoneNumber": "Telefon",
+      "startDate": "Data rozpoczęcia",
+      "comments": "Uwagi",
+      "status": "Status",
+      "user": "Przyjmujący"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="action">
+            <h2><span jhiTranslate="bikehouseordersApp.action.detail.title">Action</span> {{ action.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bikehouseordersApp.action.actionName">Action Name</span></dt>
+                <dd>
+                    <span>{{ action.actionName }}</span>
+                </dd>
+                <dt><span jhiTranslate="bikehouseordersApp.action.price">Price</span></dt>
+                <dd>
+                    <span>{{ action.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="bikehouseordersApp.action.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="action.order">
+                        <a [routerLink]="['/order', action.order?.id, 'view']">{{ action.order?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/action', action.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

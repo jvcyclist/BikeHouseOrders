@@ -42,6 +42,9 @@ public class CacheConfiguration {
             createCache(cm, pl.karas.bikehouseorders.domain.User.class.getName());
             createCache(cm, pl.karas.bikehouseorders.domain.Authority.class.getName());
             createCache(cm, pl.karas.bikehouseorders.domain.User.class.getName() + ".authorities");
+            createCache(cm, pl.karas.bikehouseorders.domain.Action.class.getName());
+            createCache(cm, pl.karas.bikehouseorders.domain.Order.class.getName());
+            createCache(cm, pl.karas.bikehouseorders.domain.NeededPart.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

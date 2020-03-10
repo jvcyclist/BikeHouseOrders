@@ -1,0 +1,24 @@
+{
+  "bikehouseordersApp": {
+    "action": {
+      "home": {
+        "title": "Akcja",
+        "createLabel": "Dodaj Akcję",
+        "createOrEditLabel": "Dodaj lub edytuj: Akcję",
+        "notFound": "Nie znaleziono akcji"
+      },
+      "created": "Utworzono nowy obiekt typu Akcja z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Akcja z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Akcja z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Akcję {{ id }}?"
+      },
+      "detail": {
+        "title": "Akcja"
+      },
+      "actionName": "Nazwa",
+      "price": "Cena",
+      "order": "Zamówienie"
+    }
+  }
+}

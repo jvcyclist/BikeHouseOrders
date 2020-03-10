@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="order">
+            <h2><span jhiTranslate="bikehouseordersApp.order.detail.title">Order</span> {{ order.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bikehouseordersApp.order.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{ order.createdDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="bikehouseordersApp.order.bikeName">Bike Name</span></dt>
+                <dd>
+                    <span>{{ order.bikeName }}</span>
+                </dd>
+                <dt><span jhiTranslate="bikehouseordersApp.order.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{ order.phoneNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="bikehouseordersApp.order.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ order.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="bikehouseordersApp.order.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ order.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="bikehouseordersApp.order.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bikehouseordersApp.Status.' + order.status }}">{{ order.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="bikehouseordersApp.order.user">User</span></dt>
+                <dd>
+                    {{ order.user?.login }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order', order.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

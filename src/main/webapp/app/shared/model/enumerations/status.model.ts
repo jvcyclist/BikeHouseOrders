@@ -1,0 +1,7 @@
+export const enum Status {
+  NEW = 'NEW',
+  WAITING_FOR_PARTS = 'WAITING_FOR_PARTS',
+  IN_PROGRESS = 'IN_PROGRESS',
+  FINISHED = 'FINISHED',
+  GIVEN = 'GIVEN'
+}

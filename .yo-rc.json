@@ -38,6 +38,8 @@
     "languages": ["pl", "en"],
     "embeddableLaunchScript": false,
     "creationTimestamp": 1583863869818,
-    "blueprints": []
+    "blueprints": [],
+    "herokuAppName": "aqueous-ridge-43518",
+    "herokuDeployType": "git"
   }
 }

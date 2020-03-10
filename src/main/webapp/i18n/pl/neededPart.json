@@ -1,0 +1,22 @@
+{
+  "bikehouseordersApp": {
+    "neededPart": {
+      "home": {
+        "title": "Potrzebna częśćt",
+        "createLabel": "Dodaj Część",
+        "createOrEditLabel": "Dodaj lub edytuj: Needed Part",
+        "notFound": "No Needed Parts found"
+      },
+      "created": "Utworzono nowy obiekt typu Needed Part z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Needed Part z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Needed Part z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Needed Part {{ id }}?"
+      },
+      "detail": {
+        "title": "Needed Part"
+      },
+      "name": "Name"
+    }
+  }
+}

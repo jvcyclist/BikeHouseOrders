@@ -1,0 +1,34 @@
+enum Status {
+  NEW,
+  WAITING_FOR_PARTS,
+  IN_PROGRESS, 
+  FINISHED,
+  GIVEN
+}
+
+entity Action {
+  actionName String required,
+  price Double required
+}
+
+entity Order {
+ createdDate Instant
+ bikeName String required
+ phoneNumber String required
+ startDate Instant
+ comments String
+ status Status
+}
+
+entity NeededPart {
+  name String required minlength(2)
+}
+
+relationship ManyToOne {
+  Order{user(login)} to User,
+  Action{order(id)} to Order
+}
+
+
+
+paginate Order, Action, NeededPart with infinite-scroll

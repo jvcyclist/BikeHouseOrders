@@ -39,7 +39,7 @@
     "embeddableLaunchScript": false,
     "creationTimestamp": 1583863869818,
     "blueprints": [],
-    "herokuAppName": "aqueous-ridge-43518",
+    "herokuAppName": "bikehouseorders",
     "herokuDeployType": "git"
   }
 }

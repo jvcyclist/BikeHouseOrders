@@ -12,7 +12,7 @@
 
 eureka:
   instance:
-    hostname: aqueous-ridge-43518.herokuapp.com
+    hostname: bikehouseorders.herokuapp.com
     non-secure-port: 80
     prefer-ip-address: false
 

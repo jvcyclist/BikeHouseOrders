@@ -1,12 +1,14 @@
 import { Route } from '@angular/router';
 
-import { HomeComponent } from './home.component';
+import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
+import { DashboardComponent } from 'app/layouts/dashboard/dashboard.component';
 
 export const HOME_ROUTE: Route = {
   path: '',
-  component: HomeComponent,
+  component: DashboardComponent,
   data: {
-    authorities: [],
+    authorities: ['ROLE_USER'],
     pageTitle: 'home.title'
-  }
+  },
+  canActivate: [UserRouteAccessService]
 };

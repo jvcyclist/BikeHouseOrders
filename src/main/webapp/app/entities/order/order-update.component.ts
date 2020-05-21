@@ -19,6 +19,7 @@ import { UserService } from 'app/core/user/user.service';
 export class OrderUpdateComponent implements OnInit {
   isSaving = false;
   users: IUser[] = [];
+  show = false;
 
   editForm = this.fb.group({
     id: [],

@@ -8,6 +8,7 @@
             Create a new Order
             </span>
         </button>
+
     </h2>
 
     <jhi-alert-error></jhi-alert-error>
@@ -33,7 +34,6 @@
                     <td><a [routerLink]="['/order', order.id, 'view']">{{ order.id }}</a></td>
 
                     <td>{{ order.bikeName }}</td>
-
                     <td jhiTranslate="{{ 'bikehouseordersApp.Status.' + order.status }}">{{ order.status }}</td>
                     <td class="text-right">
                         <div class="btn-group">

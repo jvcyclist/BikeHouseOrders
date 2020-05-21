@@ -1,5 +1,8 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+
+
+    <div *ngIf="show" class="col-8">
+        <div style="clear = left"><button (click)="show = true">Ogólne</button><button [disabled]="editForm.invalid" (click)="show = false">Akcje</button></div>
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
             <h2 id="jhi-order-heading" jhiTranslate="bikehouseordersApp.order.home.createOrEditLabel">Create or edit a Order</h2>
 
@@ -33,7 +36,7 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="bikehouseordersApp.order.phoneNumber" for="field_phoneNumber">Phone Number</label>
                     <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
-                           formControlName="phoneNumber"/>
+                           formControlName="phoneNumber" required/>
                     <div *ngIf="editForm.get('phoneNumber')!.invalid && (editForm.get('phoneNumber')!.dirty || editForm.get('phoneNumber')!.touched)">
                         <small class="form-text text-danger"
                                *ngIf="editForm.get('phoneNumber')?.errors?.required" jhiTranslate="entity.validation.required">
@@ -86,4 +89,61 @@
             </div>
         </form>
     </div>
+
+
+    <div *ngIf="!show" class="col-8">
+        <div style="clear = left"><button (click)="show = true">Ogólne</button><button (click)="show = false">Akcje</button></div>
+
+        <div class="form-group">
+            <label  class="form-control-label">Potrzebne akcje</label>
+     <div>
+            <select>
+                <optgroup label="Konserwacja">
+                    <option value="xxxx">Mycie roweru</option>
+                </optgroup>
+                <optgroup label="Wymiana podzespołów">
+                    <option value="zzzz">Przerzutka</option>
+                </optgroup>
+            </select>
+            <div class="form-group" style="float: left;">
+                <label class="form-control-label">Cena</label>
+                <div class="d-flex">
+                    <input id="field_startDate" type="text" class="form-control"/>
+                </div>
+            </div>
+            <div style="float: left;">
+
+                    <div class="btn-group">
+                        <button type="submit"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon icon="pencil-alt"></fa-icon>
+                            <span class="d-none d-md-inline">Dodaj</span>
+                        </button>
+                        <button type="submit"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon icon="times"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+
+     </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>

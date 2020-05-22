@@ -4,4 +4,17 @@
         <button type="button" class="btn btn-success">Zamówienia przygotowane</button>
         <button type="button" class="btn btn-danger">Brakujące części</button>
     </div>
+    <table>
+        <th>
+            ID
+        </th>
+        <th>
+            Nazwa
+        </th>
+        <tr *ngFor="let order of Orders">
+            <td [routerLink]="['/order',order.id,'view']">{{order.id}}</td>
+            <td>{{order.name}}</td>
+        </tr>
+    </table>
 </div>
+

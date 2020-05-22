@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'app/layouts/dashboard/order';
+import { ORDERS } from 'app/layouts/dashboard/mock-data';
 
 @Component({
   selector: 'jhi-dashboard',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  Orders: Order[] = ORDERS;
+
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, OnChanges } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks } from 'ng-jhipster';
@@ -14,7 +14,7 @@ import { OrderDeleteDialogComponent } from './order-delete-dialog.component';
   selector: 'jhi-order',
   templateUrl: './order.component.html'
 })
-export class OrderComponent implements OnInit, OnDestroy {
+export class OrderComponent implements OnInit, OnDestroy, OnChanges {
   orders: IOrder[];
   eventSubscriber?: Subscription;
   itemsPerPage: number;
@@ -22,6 +22,8 @@ export class OrderComponent implements OnInit, OnDestroy {
   page: number;
   predicate: string;
   ascending: boolean;
+  @Input()
+  ordersType: string;
 
   constructor(
     protected orderService: OrderService,
@@ -37,11 +39,18 @@ export class OrderComponent implements OnInit, OnDestroy {
     };
     this.predicate = 'id';
     this.ascending = true;
+    this.ordersType = '';
   }
 
-  loadAll(): void {
+  ngOnChanges(): void {
+    this.page = 0;
+    this.orders = [];
+    this.loadAll(this.ordersType);
+  }
+
+  loadAll(status = 'NEW'): void {
     this.orderService
-      .query({
+      .query(status, {
         page: this.page,
         size: this.itemsPerPage,
         sort: this.sort()
@@ -52,16 +61,16 @@ export class OrderComponent implements OnInit, OnDestroy {
   reset(): void {
     this.page = 0;
     this.orders = [];
-    this.loadAll();
+    this.loadAll(this.ordersType);
   }
 
   loadPage(page: number): void {
     this.page = page;
-    this.loadAll();
+    this.loadAll(this.ordersType);
   }
 
   ngOnInit(): void {
-    this.loadAll();
+    this.loadAll(this.ordersType);
     this.registerChangeInOrders();
   }
 

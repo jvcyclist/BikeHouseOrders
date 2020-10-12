@@ -48,8 +48,8 @@ public class OrderResourceIT {
     private static final String DEFAULT_COMMENTS = "AAAAAAAAAA";
     private static final String UPDATED_COMMENTS = "BBBBBBBBBB";
 
-    private static final Status DEFAULT_STATUS = Status.NEW;
-    private static final Status UPDATED_STATUS = Status.WAITING_FOR_PARTS;
+    private static final String DEFAULT_STATUS = "NEW";
+    private static final String UPDATED_STATUS = "WAITING_FOR_PARTS";
 
     @Autowired
     private OrderRepository orderRepository;
@@ -197,7 +197,7 @@ public class OrderResourceIT {
             .andExpect(jsonPath("$.[*].comments").value(hasItem(DEFAULT_COMMENTS)))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getOrder() throws Exception {

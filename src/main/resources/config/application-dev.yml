@@ -36,13 +36,10 @@ spring:
     serialization:
       indent-output: true
   datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./target/h2db/db/bikehouseorders;DB_CLOSE_DELAY=-1
-    username: bikehouseorders
-    password:
-    hikari:
-      poolName: Hikari
-      auto-commit: false
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bikehouseorders?useLegacyDatetimeCode=false&serverTimezone=UTC&relaxAutoCommit=true
+    username: root
+    password: toor123
   h2:
     console:
       enabled: false
@@ -50,7 +47,7 @@ spring:
     show-sql: true
     properties:
       hibernate.id.new_generator_mappings: true
-      hibernate.connection.provider_disables_autocommit: true
+      hibernate.connection.provider_disables_autocommit: false
       hibernate.cache.use_second_level_cache: true
       hibernate.cache.use_query_cache: false
       hibernate.generate_statistics: false

@@ -44,9 +44,14 @@ public class Order implements Serializable {
     @Column(name = "comments")
     private String comments;
 
-    @Enumerated(EnumType.STRING)
+  /*  @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private Status status;
+    private Status status;*/
+
+
+
+    @Column(name = "status")
+    private String status;
 
     @ManyToOne
     @JsonIgnoreProperties("orders")
@@ -126,16 +131,16 @@ public class Order implements Serializable {
         this.comments = comments;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public Order status(Status status) {
+    public Order status(String status) {
         this.status = status;
         return this;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

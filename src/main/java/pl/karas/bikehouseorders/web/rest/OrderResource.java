@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -93,9 +94,14 @@ public class OrderResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of orders in body.
      */
     @GetMapping("/orders")
-    public ResponseEntity<List<Order>> getAllOrders(Pageable pageable) {
+    public ResponseEntity<List<Order>> getAllOrders(Pageable pageable, @RequestParam(required = false, name = "status",defaultValue = "none") String status ) {
         log.debug("REST request to get a page of Orders");
-        Page<Order> page = orderRepository.findAll(pageable);
+        Page<Order> page = null;
+        if (status.equals("")||status.equals(null)||status == null||status.equals("none")){
+        page = orderRepository.findAll(pageable);}
+        else {
+        page = orderRepository.findByStatus(pageable, status);
+        }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

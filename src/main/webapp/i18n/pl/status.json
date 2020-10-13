@@ -6,7 +6,8 @@
       "WAITING_FOR_PARTS": "OCZEKIWANIE NA CZĘŚCI",
       "IN_PROGRESS": "W TRAKCIE",
       "FINISHED": "SKOŃCZONY",
-      "GIVEN": "ODDANY"
+      "GIVEN": "ODDANY",
+      "PLANNED": "ZAPLANOWANY"
     }
   }
 }

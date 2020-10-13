@@ -48,12 +48,13 @@ export class OrderComponent implements OnInit, OnDestroy, OnChanges {
     this.loadAll(this.ordersType);
   }
 
-  loadAll(status = 'NEW'): void {
+  loadAll(tstatus = 'NEW'): void {
     this.orderService
-      .query(status, {
+      .query({
         page: this.page,
         size: this.itemsPerPage,
-        sort: this.sort()
+        sort: this.sort(),
+        status: tstatus
       })
       .subscribe((res: HttpResponse<IOrder[]>) => this.paginateOrders(res.body, res.headers));
   }

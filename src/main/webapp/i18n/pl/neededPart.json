@@ -2,7 +2,7 @@
   "bikehouseordersApp": {
     "neededPart": {
       "home": {
-        "title": "Potrzebna częśćt",
+        "title": "Potrzebna część",
         "createLabel": "Dodaj Część",
         "createOrEditLabel": "Dodaj lub edytuj: Needed Part",
         "notFound": "No Needed Parts found"

@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from 'app/layouts/dashboard/order';
-import { ORDERS } from 'app/layouts/dashboard/mock-data';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'jhi-dashboard',
@@ -9,16 +6,21 @@ import { Subject } from 'rxjs';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  Orders: Order[] = ORDERS;
   activeOrders: string;
-
+  typeOfContent: string;
   constructor() {
     this.activeOrders = '';
+    this.typeOfContent = 'Orders';
   }
 
   ngOnInit(): void {}
 
   changeActiveOrders(typeOrders: string): void {
     this.activeOrders = typeOrders;
+    this.changeView('Orders');
+  }
+
+  changeView(typeOfContent: string): void {
+    this.typeOfContent = typeOfContent;
   }
 }

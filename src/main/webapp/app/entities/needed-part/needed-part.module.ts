@@ -11,6 +11,7 @@ import { neededPartRoute } from './needed-part.route';
 @NgModule({
   imports: [BikehouseordersSharedModule, RouterModule.forChild(neededPartRoute)],
   declarations: [NeededPartComponent, NeededPartDetailComponent, NeededPartUpdateComponent, NeededPartDeleteDialogComponent],
+  exports: [NeededPartComponent],
   entryComponents: [NeededPartDeleteDialogComponent]
 })
 export class BikehouseordersNeededPartModule {}

@@ -8,12 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   activeOrders: string;
   typeOfContent: string;
-  constructor() {
+
+  ngOnInit(): void {
     this.activeOrders = '';
     this.typeOfContent = 'Orders';
   }
-
-  ngOnInit(): void {}
 
   changeActiveOrders(typeOrders: string): void {
     this.activeOrders = typeOrders;

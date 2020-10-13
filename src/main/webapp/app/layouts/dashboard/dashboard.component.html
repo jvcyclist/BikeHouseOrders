@@ -32,11 +32,13 @@
 
 
 <div>
-    <ng-container [ngSwitch]="typeOfContent" ]>
-    <div *ngSwitchCase="'Calendar'">Calendar</div>
+    <ng-container [ngSwitch]="typeOfContent">
         <jhi-needed-part *ngSwitchCase="'NeededParts'" ></jhi-needed-part>
-        <jhi-order *ngSwitchDefault [ordersType]="activeOrders"></jhi-order>
 
+            <ng-fullcalendar *ngSwitchCase="'Calendar'"></ng-fullcalendar>
+
+        <jhi-order *ngSwitchDefault [ordersType]="activeOrders"></jhi-order>
     </ng-container>
+
 
 </div>

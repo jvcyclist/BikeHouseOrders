@@ -17,8 +17,8 @@ import { ErrorComponent } from './layouts/error/error.component';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { BikehouseordersOrderModule } from 'app/entities/order/order.module';
 import { FormsModule } from '@angular/forms';
-import { NeededPartComponent } from 'app/entities/needed-part/needed-part.component';
 import { BikehouseordersNeededPartModule } from 'app/entities/needed-part/needed-part.module';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   imports: [
@@ -31,7 +31,8 @@ import { BikehouseordersNeededPartModule } from 'app/entities/needed-part/needed
     BikehouseordersAppRoutingModule,
     BikehouseordersOrderModule,
     FormsModule,
-    BikehouseordersNeededPartModule
+    BikehouseordersNeededPartModule,
+    FullCalendarModule
   ],
   declarations: [
     MainComponent,

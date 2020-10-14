@@ -2,6 +2,8 @@
 @import '~bootstrap/scss/functions';
 @import '~bootswatch/dist/darkly/variables';
 @import '~bootstrap/scss/variables';
+@import './angular-calendar.scss';
+@import '~flatpickr/dist/themes/light.css';
 
 /* ==============================================================
 Bootstrap tweaks
@@ -14,7 +16,6 @@ h3,
 body {
   background-color: #444444;
 }
-
 h4 {
   font-weight: 300;
 }

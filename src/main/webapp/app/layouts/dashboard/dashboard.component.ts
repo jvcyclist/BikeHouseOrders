@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'jhi-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   activeOrders: string;
   typeOfContent: string;
+  viewDate = new Date();
+  events = [];
 
-  ngOnInit(): void {
+  constructor() {
     this.activeOrders = '';
     this.typeOfContent = 'Orders';
   }
+
+  ngOnInit(): void {}
 
   changeActiveOrders(typeOrders: string): void {
     this.activeOrders = typeOrders;

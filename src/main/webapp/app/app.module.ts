@@ -18,7 +18,11 @@ import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { BikehouseordersOrderModule } from 'app/entities/order/order.module';
 import { FormsModule } from '@angular/forms';
 import { BikehouseordersNeededPartModule } from 'app/entities/needed-part/needed-part.module';
-import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarContainerComponent } from './layouts/calendar-container/calendar-container.component';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -32,7 +36,13 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     BikehouseordersOrderModule,
     FormsModule,
     BikehouseordersNeededPartModule,
-    FullCalendarModule
+    BrowserAnimationsModule,
+    FlatpickrModule.forRoot(),
+
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   declarations: [
     MainComponent,
@@ -41,7 +51,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     PageRibbonComponent,
     ActiveMenuDirective,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    CalendarContainerComponent
   ],
   bootstrap: [MainComponent]
 })

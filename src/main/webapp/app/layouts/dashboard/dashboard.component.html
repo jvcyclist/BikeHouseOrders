@@ -35,8 +35,7 @@
     <ng-container [ngSwitch]="typeOfContent">
         <jhi-needed-part *ngSwitchCase="'NeededParts'" ></jhi-needed-part>
 
-            <ng-fullcalendar *ngSwitchCase="'Calendar'"></ng-fullcalendar>
-
+        <jhi-calendar-container *ngSwitchCase="'Calendar'"></jhi-calendar-container>
         <jhi-order *ngSwitchDefault [ordersType]="activeOrders"></jhi-order>
     </ng-container>
 

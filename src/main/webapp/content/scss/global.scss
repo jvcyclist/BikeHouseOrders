@@ -14,7 +14,7 @@ h1,
 h2,
 h3,
 body {
-  background-color: #444444;
+  background: #444444;
 }
 h4 {
   font-weight: 300;
@@ -49,6 +49,7 @@ Generic styles
   padding: 1.5%;
   margin-top: 20px;
   border: none;
+  height: 100%;
 }
 
 .error {
@@ -166,6 +167,10 @@ ui bootstrap tweaks
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+html {
+  background-color: #000000;
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */

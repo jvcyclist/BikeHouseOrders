@@ -3,13 +3,12 @@ import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMo
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView } from 'angular-calendar';
-import { CalendarEventActionsComponent } from 'angular-calendar/modules/common/calendar-event-actions.component';
 
 @Component({
   selector: 'jhi-calendar-container',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar-container.component.html',
-  styleUrls: ['./angular-calendar.scss']
+  styleUrls: ['./calendar-container.component.scss']
 })
 export class CalendarContainerComponent implements OnInit {
   @ViewChild('modalContent', { static: true }) modalContent?: TemplateRef<any>;

@@ -10,7 +10,7 @@
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="bikehouseordersApp.order.createdDate">Created Date</span></dt>
                 <dd>
-                    <span>{{ order.createdDate }}</span>
+                    <span>{{ order.createdDate | amDateFormat:'DD/MM/YYYY' }}</span>
                 </dd>
                 <dt><span jhiTranslate="bikehouseordersApp.order.bikeName">Bike Name</span></dt>
                 <dd>
@@ -22,7 +22,7 @@
                 </dd>
                 <dt><span jhiTranslate="bikehouseordersApp.order.startDate">Start Date</span></dt>
                 <dd>
-                    <span>{{ order.startDate }}</span>
+                    <span>{{ order.startDate | amDateFormat:'DD/MM/YYYY' }}</span>
                 </dd>
                 <dt><span jhiTranslate="bikehouseordersApp.order.comments">Comments</span></dt>
                 <dd>

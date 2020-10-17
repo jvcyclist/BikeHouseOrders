@@ -7,9 +7,10 @@ import { OrderDetailComponent } from './order-detail.component';
 import { OrderUpdateComponent } from './order-update.component';
 import { OrderDeleteDialogComponent } from './order-delete-dialog.component';
 import { orderRoute } from './order.route';
+import { MomentModule } from 'ngx-moment';
 
 @NgModule({
-  imports: [BikehouseordersSharedModule, RouterModule.forChild(orderRoute)],
+  imports: [BikehouseordersSharedModule, RouterModule.forChild(orderRoute), MomentModule],
   declarations: [OrderComponent, OrderDetailComponent, OrderUpdateComponent, OrderDeleteDialogComponent],
   exports: [OrderComponent],
   entryComponents: [OrderDeleteDialogComponent]

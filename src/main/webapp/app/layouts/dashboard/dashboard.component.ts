@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   activeOrders: string;
   typeOfContent: string;
-  viewDate = new Date();
   events = [];
 
   constructor() {
@@ -19,6 +18,7 @@ export class DashboardComponent implements OnInit {
 
   changeActiveOrders(typeOrders: string): void {
     this.activeOrders = typeOrders;
+
     this.changeView('Orders');
   }
 

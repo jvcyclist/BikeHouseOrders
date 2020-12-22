@@ -43,9 +43,7 @@ export class OrderComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(): void {
-    this.page = 0;
-    this.orders = [];
-    this.loadAll(this.ordersType);
+    this.reset();
   }
 
   loadAll(tstatus = 'NEW'): void {

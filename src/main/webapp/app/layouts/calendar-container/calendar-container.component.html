@@ -8,14 +8,14 @@
                 [(viewDate)]="viewDate"
                 (viewDateChange)="closeOpenMonthViewDay()"
             >
-                Previous
+                Poprzedni
             </div>
             <div
                 class="btn btn-outline-secondary"
                 mwlCalendarToday
                 [(viewDate)]="viewDate"
             >
-                Today
+                Dzisiaj
             </div>
             <div
                 class="btn btn-primary"
@@ -24,7 +24,7 @@
                 [(viewDate)]="viewDate"
                 (viewDateChange)="closeOpenMonthViewDay()"
             >
-                Next
+                Następny
             </div>
         </div>
     </div>
@@ -38,21 +38,21 @@
                 (click)="setView(CalendarView.Month)"
                 [class.active]="view === CalendarView.Month"
             >
-                Month
+                Miesiąc
             </div>
             <div
                 class="btn btn-primary"
                 (click)="setView(CalendarView.Week)"
                 [class.active]="view === CalendarView.Week"
             >
-                Week
+                Tydzień
             </div>
             <div
                 class="btn btn-primary"
                 (click)="setView(CalendarView.Day)"
                 [class.active]="view === CalendarView.Day"
             >
-                Day
+                Dzień
             </div>
         </div>
     </div>
@@ -97,7 +97,7 @@
 <h3>
     Edit events
     <button class="btn btn-primary float-right" (click)="addEvent()">
-        Add new
+        Dodaj
     </button>
     <div class="clearfix"></div>
 </h3>
@@ -106,12 +106,12 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Title</th>
-            <th>Primary color</th>
-            <th>Secondary color</th>
-            <th>Starts at</th>
-            <th>Ends at</th>
-            <th>Remove</th>
+            <th>Tytuł</th>
+            <th>Pierwszy kolor</th>
+            <th>Drugi kolor</th>
+            <th>Rozpoczęcie</th>
+            <th>Zakończenie</th>
+            <th>Usuń</th>
         </tr>
         </thead>
 
@@ -171,7 +171,7 @@
             </td>
             <td>
                 <button class="btn btn-danger" (click)="deleteEvent(event)">
-                    Delete
+                    Usuń
                 </button>
             </td>
         </tr>

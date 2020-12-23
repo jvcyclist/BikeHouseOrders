@@ -9,8 +9,6 @@ import { IOrder } from 'app/shared/model/order.model';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { OrderService } from './order.service';
 import { OrderDeleteDialogComponent } from './order-delete-dialog.component';
-import { IAction } from 'app/shared/model/action.model';
-import { Action } from 'ts-loader/dist/servicesHost';
 
 @Component({
   selector: 'jhi-order',

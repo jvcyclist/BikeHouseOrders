@@ -7,6 +7,7 @@ import { Authority } from 'app/shared/constants/authority.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { DashboardComponent } from 'app/layouts/dashboard/dashboard.component';
+import { HomeComponent } from 'app/home/home.component';
 
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
@@ -29,6 +30,10 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         {
           path: 'dashboard',
           component: DashboardComponent
+        },
+        {
+          path: 'home',
+          component: HomeComponent
         },
         ...LAYOUT_ROUTES
       ],

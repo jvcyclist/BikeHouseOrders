@@ -11,6 +11,7 @@ import { actionRoute } from './action.route';
 @NgModule({
   imports: [BikehouseordersSharedModule, RouterModule.forChild(actionRoute)],
   declarations: [ActionComponent, ActionDetailComponent, ActionUpdateComponent, ActionDeleteDialogComponent],
+  exports: [],
   entryComponents: [ActionDeleteDialogComponent]
 })
 export class BikehouseordersActionModule {}

@@ -8,10 +8,11 @@ import { OrderUpdateComponent } from './order-update.component';
 import { OrderDeleteDialogComponent } from './order-delete-dialog.component';
 import { orderRoute } from './order.route';
 import { MomentModule } from 'ngx-moment';
+import { ActionsumPipe } from './actionsum.pipe';
 
 @NgModule({
   imports: [BikehouseordersSharedModule, RouterModule.forChild(orderRoute), MomentModule],
-  declarations: [OrderComponent, OrderDetailComponent, OrderUpdateComponent, OrderDeleteDialogComponent],
+  declarations: [OrderComponent, OrderDetailComponent, OrderUpdateComponent, OrderDeleteDialogComponent, ActionsumPipe],
   exports: [OrderComponent],
   entryComponents: [OrderDeleteDialogComponent]
 })

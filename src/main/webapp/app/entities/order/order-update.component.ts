@@ -11,6 +11,7 @@ import { IOrder, Order } from 'app/shared/model/order.model';
 import { OrderService } from './order.service';
 import { IUser } from 'app/core/user/user.model';
 import { UserService } from 'app/core/user/user.service';
+import { Action, IAction } from 'app/shared/model/action.model';
 
 @Component({
   selector: 'jhi-order-update',
@@ -20,6 +21,30 @@ export class OrderUpdateComponent implements OnInit {
   isSaving = false;
   users: IUser[] = [];
   show = false;
+  sum: number;
+  actions: IAction[] = [
+    {
+      actionName: 'Wymiana przerzutki',
+      price: 20.5
+    },
+    {
+      actionName: 'Wymiana dętki',
+      price: 32.6
+    },
+    {
+      actionName: 'Centrowanie szprych',
+      price: 15
+    },
+    {
+      actionName: 'Dokręcenie korby',
+      price: 22
+    },
+    {
+      actionName: 'Regulacja przerzutki',
+      price: 30.5
+    }
+  ];
+  action: Action = new Action();
 
   editForm = this.fb.group({
     id: [],
@@ -37,7 +62,9 @@ export class OrderUpdateComponent implements OnInit {
     protected userService: UserService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
-  ) {}
+  ) {
+    this.sum = this.actionPriceSum();
+  }
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ order }) => {
@@ -114,5 +141,28 @@ export class OrderUpdateComponent implements OnInit {
 
   trackById(index: number, item: IUser): any {
     return item.id;
+  }
+
+  saveAction(): void {
+    this.actions.push(this.action);
+    this.action = {};
+    this.actionPriceSum();
+  }
+
+  actionPriceSum(): number {
+    return (this.sum = this.actions
+      .map(act => {
+        if (act.price !== undefined) {
+          return act.price;
+        } else {
+          return 0;
+        }
+      })
+      .reduce((a, b) => a + b));
+  }
+
+  deleteAction(index: number): void {
+    this.actions.splice(index, 1);
+    this.actionPriceSum();
   }
 }

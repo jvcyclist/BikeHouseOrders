@@ -92,44 +92,82 @@
     </div>
 
 
+
+<!-- START OF ACTIONS-->
     <div *ngIf="!show" class="col-8">
+
         <div style="clear = left"><button (click)="show = true">Ogólne</button><button (click)="show = false">Akcje</button></div>
 
         <div class="form-group">
             <label  class="form-control-label">Potrzebne akcje</label>
      <div>
-            <select>
-                <optgroup label="Konserwacja">
-                    <option value="xxxx">Mycie roweru</option>
-                </optgroup>
-                <optgroup label="Wymiana podzespołów">
-                    <option value="zzzz">Przerzutka</option>
-                </optgroup>
-            </select>
-            <div class="form-group" style="float: left;">
-                <label class="form-control-label">Cena</label>
-                <div class="d-flex">
-                    <input id="field_startDate" type="text" class="form-control"/>
+         <!-- LIST OF ACTIONS START-->
+         <table class="table table-bordered table-dark">
+             <tr class="thead-dark">
+                 <th>Nazwa</th>
+                 <th>Cena</th>
+                 <th>Akcja</th>
+             </tr>
+             <tr *ngFor="let act of actions; let i=index" class="table-secondary">
+                 <td>{{act.actionName}}</td>
+                 <td>{{act.price | currency: 'PLN'}}</td>
+                 <td><button (click)="deleteAction(i)" class="btn btn-danger btn-sm">Usuń</button></td>
+             </tr>
+             <tr *ngIf="actions.length>0" class="table-warning">
+                 <td>Suma</td>
+                 <td>{{sum | currency:'PLN'}}</td>
+             </tr>
+         </table>
+
+         <!-- LIST OF ACTIONS END-->
+
+        <form name="editForm" role="form" novalidate (ngSubmit)="saveAction()">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <label class="form-control-label">Nazwa</label>
+                        <select class="form-control" name="actionName" [(ngModel)]="action.actionName">
+                            <optgroup label="Konserwacja">
+                                <option value="Mycie roweru">Mycie roweru</option>
+                            </optgroup>
+                            <optgroup label="Wymiana podzespołów">
+                                <option value="Przerzutka">Przerzutka</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group" style="float: left;">
+                            <label class="form-control-label">Cena</label>
+                            <div class="d-flex">
+                                <input name="price" step="0.10"[(ngModel)]="action.price" type="number" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div style="float: left;">
+
+                            <div class="btn-group">
+                                <button type="submit"
+                                        class="btn btn-primary btn-sm">
+                                    <fa-icon icon="pencil-alt"></fa-icon>
+                                    <span class="d-none d-md-inline">Dodaj</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div style="float: left;">
 
-                    <div class="btn-group">
-                        <button type="submit"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon icon="pencil-alt"></fa-icon>
-                            <span class="d-none d-md-inline">Dodaj</span>
-                        </button>
-                        <button type="submit"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon icon="times"></fa-icon>
-                            <span class="d-none d-md-inline">Delete</span>
-                        </button>
-                    </div>
 
-     </div>
+
+
+
+        </form>
         </div>
     </div>
+
+
+    <!-- END OF------------------------- ACTIONS-->
 
 
 

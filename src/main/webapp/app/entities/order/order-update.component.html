@@ -72,28 +72,42 @@
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="bikehouseordersApp.order.user" for="field_user">User</label>
-                    <select class="form-control" id="field_user" name="user" formControlName="user">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    <select [attr.disabled]="!userAuthorities.includes('ROLE_ADMIN')?true:null" class="form-control" id="field_user" name="user" formControlName="user">
+                       <ng-container *ngIf="userAuthorities.includes('ROLE_ADMIN')">
+                       <option [ngValue]="null"></option>
+                       <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                       </ng-container>
+
+
+                        <ng-container *ngIf="!userAuthorities.includes('ROLE_ADMIN')">
+                            <ng-container *ngIf="isNew">
+                                <option *ngIf="!userAuthorities.includes('ROLE_ADMIN')"[ngValue]="user.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : user" [selected]="true">{{ user.login }}</option>
+                            </ng-container>
+
+                            <ng-container *ngIf="!isNew">
+                                <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                            </ng-container>
+                        </ng-container>
+
                     </select>
-                </div>
-            </div>
+                  </div>
+              </div>
 
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
-                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
+              <div>
+                  <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                      <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                  </button>
 
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
-            </div>
-        </form>
-    </div>
+                  <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                      <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                  </button>
+              </div>
+          </form>
+      </div>
 
 
 
-<!-- START OF ACTIONS-->
+  <!-- START OF ACTIONS-->
     <div *ngIf="!show" class="col-8">
 
         <div style="clear = left"><button (click)="show = true">Ogólne</button><button (click)="show = false">Akcje</button></div>

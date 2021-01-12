@@ -20,8 +20,11 @@ import { Action, IAction } from 'app/shared/model/action.model';
 export class OrderUpdateComponent implements OnInit {
   isSaving = false;
   users: IUser[] = [];
+  user!: IUser;
+  userAuthorities: string[] = [];
   show = false;
   sum: number;
+  isNew = false;
   actions: IAction[] = [
     {
       actionName: 'Wymiana przerzutki',
@@ -69,6 +72,7 @@ export class OrderUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ order }) => {
       if (!order.id) {
+        this.isNew = true;
         const today = moment().startOf('day');
         order.createdDate = today;
         order.startDate = today;
@@ -77,6 +81,10 @@ export class OrderUpdateComponent implements OnInit {
       this.updateForm(order);
 
       this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
+      this.userService.getCurrent().subscribe(currentUser => {
+        this.user = currentUser;
+        this.userAuthorities = this.user.authorities!;
+      });
     });
   }
 

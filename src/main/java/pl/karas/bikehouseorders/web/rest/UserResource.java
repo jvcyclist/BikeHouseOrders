@@ -4,6 +4,7 @@ import pl.karas.bikehouseorders.config.Constants;
 import pl.karas.bikehouseorders.domain.User;
 import pl.karas.bikehouseorders.repository.UserRepository;
 import pl.karas.bikehouseorders.security.AuthoritiesConstants;
+import pl.karas.bikehouseorders.security.SecurityUtils;
 import pl.karas.bikehouseorders.service.MailService;
 import pl.karas.bikehouseorders.service.UserService;
 import pl.karas.bikehouseorders.service.dto.UserDTO;
@@ -185,5 +186,14 @@ public class UserResource {
         log.debug("REST request to delete User: {}", login);
         userService.deleteUser(login);
         return ResponseEntity.noContent().headers(HeaderUtil.createAlert(applicationName,  "userManagement.deleted", login)).build();
+    }
+
+    @GetMapping("/users/current")
+    public ResponseEntity<UserDTO> getCurrentUser(){
+        log.debug("REST request to get Current User: ", userService.getUserWithAuthorities().get().getLogin());
+        return ResponseUtil.wrapOrNotFound(
+            userService.getUserWithAuthorities()
+            //userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get().toLowerCase())
+                .map(UserDTO::new));
     }
 }

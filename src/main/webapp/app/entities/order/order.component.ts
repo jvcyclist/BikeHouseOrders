@@ -105,6 +105,7 @@ export class OrderComponent implements OnInit, OnDestroy, OnChanges {
     const headersLink = headers.get('link');
     this.links = this.parseLinks.parse(headersLink ? headersLink : '');
     if (data) {
+      this.orders = [];
       for (let i = 0; i < data.length; i++) {
         this.orders.push(data[i]);
       }
